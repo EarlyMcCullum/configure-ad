@@ -3,7 +3,7 @@
 </p>
 
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+This tutorial outlines the implementation of on premises Active Directory within Azure Virtual Machines.<br />
 
 
 
@@ -21,33 +21,49 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+1. Prepare Networking & Infrastructure
 
-<h2>Deployment and Configuration Steps</h2>
+Set up your Azure Virtual Network (VNet) and Resource Group. This creates the secure foundation where your AD will live just like setting up the land before you build a house.
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+2. Extend or Sync Your AD to Azure
+
+Use Azure AD Connect to synchronize your on premises AD with Azure AD. This keeps users, passwords, and groups consistent across environments.<p>
+
+3. Deploy AD Domain Services or Virtual DCs
+
+Decide whether to deploy Azure AD Domain Services (managed) or a full Domain Controller VM in Azure. This gives Azure based servers access to domain functions like login and group policy.
+
+4. Test and Secure the Setup
+
+Join Azure VMs to the domain, verify authentication (like login), and lock down DNS, VPNs, and firewall settings for security and reliability.
+
+<h2>Deployment and Configuration Steps
+
+</h2><img src="https://i.imgur.com/tKudual.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+- Launch Azure AD Domain Services
+Action: In the Azure Portal, search for Azure AD Domain Services, then click Create.
+
+Why it matters: This starts the setup wizard for creating a managed domain in Azure.</p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/H0CFU3E.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+- Connect Your On-Premises AD via Azure AD Connect
+Action: Run the Azure AD Connect wizard to link your on‑prem AD forests to your Azure AD tenant.
+
+Why it matters: This syncs user identities and credentials securely between local and cloud environments.</p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Q9teleE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+- Visual Architecture of AD Integration
+Action: A diagram showing how on‑premises AD, Azure AD Domain Services, and Azure VM based Domain Controllers all connect via VNet/VPN.
+
+Why it matters: It helps visualize how the infrastructure pieces including syncing, connectivity, and domain control fit together.</p>
 <br />
